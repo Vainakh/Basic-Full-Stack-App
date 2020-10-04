@@ -31,6 +31,9 @@ import axios from 'axios';
     return(
       <div>
         {this.state.data}
+        <button 
+        onClick={this.props.changeView}
+        >LogOut</button>
       </div>
     )
   }

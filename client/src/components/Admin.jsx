@@ -29,16 +29,18 @@ export default class Admin extends React.Component{
     let view;
 
     if (this.state.currentView === "LoginView"){
-      view = <LoginView />
+      view = <LoginView 
+        changeView={this.changeView}
+      />
     } else {
-      view = <TableView />
+      view = <TableView 
+        changeView={this.changeView}
+      />
     }
 
     return(
       <div>
         {view}
-        <button onClick={this.changeView}>Login</button>
-        
       </div>
     )
   }
