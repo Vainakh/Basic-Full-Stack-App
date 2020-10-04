@@ -10,9 +10,27 @@ let db = require('./controllers.js');
 app.use(express.static(path.join(__dirname, './../client/dist')));
 app.use(bodyParser.json());
 
-app.post("/data", (req, res) => {
-  console.log("Endpoint hit!")
-})
+app.post('/data', (req, res) => {
+  console.log('this is db'. db);
+  db.postData(req.body, (err) => {
+    if (err) {
+      console.log('error posting to mongo server')
+    } else {
+      res.status(201).send();
+    }
+  });
+});
+
+app.get('/data', (req, res) => {
+  db.getData((err, data) => {
+    console.log(data);
+    console.log(typeof data);
+    res.send(data)
+  });
+
+});
+
+
 
 
 let PORT = 3000;
