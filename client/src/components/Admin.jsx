@@ -20,7 +20,7 @@ export default class Admin extends React.Component{
     let view;
 
     view = (this.state.currentView === "LoginView") ? "TableView" : "LoginView";
-  
+  console.log(view)
     this.setState({ currentView: view});
   }
 

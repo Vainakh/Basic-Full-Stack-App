@@ -1,20 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
-// const TableView = () => {
-//   return <div>Table</div>
-// }
-//change to class and 
-
-
  class TableView extends React.Component{
   
   constructor(props){
     super(props);
     this.state = {
       data: "",
-    };
-    
+    }; 
   }
 
   componentDidMount(){

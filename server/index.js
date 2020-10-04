@@ -30,6 +30,20 @@ app.get('/data', (req, res) => {
 
 });
 
+app.post('/auth', (req, res) => {
+  console.log("auth end point fires")
+  db.getAuth(req.body, (err, response) => {
+    if (response === true) {
+      console.log("success")
+      res.status(200).send();
+      
+    } else {
+      res.status(401).send();
+      console.log('error and auth')
+    }
+  });
+})
+
 
 
 

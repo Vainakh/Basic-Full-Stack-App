@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 
 class LoginView extends React.Component{
@@ -10,6 +11,30 @@ class LoginView extends React.Component{
       password: ""
     }; 
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+  }
+
+  onClickHandler() {
+    let valid;
+    console.log(this.props.changeView)
+    axios.post('/auth', {
+      username: this.state.username,
+      password: this.state.password
+    })
+    .then(function (response) {
+      if (response.status === 200){
+      // console.log(this.props)
+        valid = true;
+      } else {
+        console.log("Invalid username or password")
+      }
+    })
+    if (valid){
+      console.log("true");
+      this.props.changeView();
+      
+    }
+    // this.props.changeView();
   }
 
 
@@ -44,7 +69,7 @@ class LoginView extends React.Component{
        </label>
        
        <button
-       onClick={this.props.changeView}>LogIn</button>
+       onClick={this.onClickHandler}>LogIn</button>
       </div>
     )
   }

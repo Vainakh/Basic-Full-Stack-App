@@ -1,4 +1,6 @@
 let mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 mongoose.connect('mongodb://127.0.0.1:27017/data', { useNewUrlParser: true });
 
@@ -20,7 +22,21 @@ let mongooseSchema = mongoose.Schema({
   ssn: String
 });
 
+
+let authSchema = mongoose.Schema({
+  username: String,
+  password: String
+});
+
+// let userSchema = mongoose.Schema({
+//   username: String,
+// });
+
 let Model = new mongoose.model('data', mongooseSchema);
+
+let Auth = new mongoose.model('auth', authSchema)
+
+// let User = new mongoose.model('user', userSchema)
 
 const save = (data, callback) => {
 
@@ -55,8 +71,61 @@ const find = (callback) => {
   })
 };
 
+const auth = (data, callback) => {
+  console.log("auth fires")
+  // console.log(data)
+
+  
+  // let auth;
+
+  // bcrypt.hash(data.password, saltRounds, (err, hash) => {
+  //   auth = Auth({
+  //     username: `${data.username}`,
+  //     password: `${hash}`
+  //   })
+
+
+  //   auth.save((err, res) => {
+  //     if (err) {
+  //       callback(err);
+  //     } else {
+  //       console.log(res);
+  //       console.log('successful save in authentication');
+  //       callback(null, res)
+  //     }
+  //   })
+  // });
+  
+
+  
+
+  // console.log(data)
+
+  Auth.findOne({ username: data.username }, (err, userData) => {
+    if(err) {
+      console.log('error in find');
+      callback(err)
+    } else {
+      // console.log('successful find', userData);
+      bcrypt.compare(data.password, userData.password, function(err, res) {
+        if (res == true){
+          console.log("True")
+           callback(null, true)
+          // password matched
+        } else{
+          console.log("False")
+          callback(null, false)
+          // wrong password
+        } 
+      });
+     
+    }
+  })
+};
+
 
 module.exports = {
   save,
-  find
+  find,
+  auth
 };
