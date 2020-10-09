@@ -27,13 +27,6 @@ const getData = (callback) => {
 const getAuth = (data, callback) => {
   auth(data, (err, res) => {
     callback(null, res)
-    // if(err) {
-    //   console.log("error in authentication")
-    // } else {
-    //   console.log(res)
-    //   console.log('successful authentication');
-    //   // callback(null, res);
-    // }
   })
 }
 

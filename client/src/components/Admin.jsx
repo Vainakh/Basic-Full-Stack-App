@@ -4,6 +4,7 @@ import LoginView from './LoginView.jsx';
 import TableView from './TableView.jsx';
 
 
+
 export default class Admin extends React.Component{
   
   constructor(props){
@@ -39,7 +40,7 @@ export default class Admin extends React.Component{
     }
 
     return(
-      <div>
+      <div className="Admin">
         {view}
       </div>
     )

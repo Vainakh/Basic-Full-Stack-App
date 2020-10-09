@@ -1,3 +1,4 @@
+
 let mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -102,11 +103,12 @@ const auth = (data, callback) => {
   // console.log(data)
 
   Auth.findOne({ username: data.username }, (err, userData) => {
-    if(err) {
+    if(err || !userData) {
       console.log('error in find');
       callback(err)
     } else {
-      // console.log('successful find', userData);
+      console.log('successful find', userData);
+      console.log(data.password)
       bcrypt.compare(data.password, userData.password, function(err, res) {
         if (res == true){
           console.log("True")

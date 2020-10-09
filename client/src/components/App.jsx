@@ -1,6 +1,8 @@
 import React from 'react'
 import ExternalUsers from './ExternalUsers.jsx';
 import Admin from './Admin.jsx';
+import '../styles/app.css';
+
 
 
 export default class App extends React.Component{
@@ -17,7 +19,7 @@ export default class App extends React.Component{
     let view;
 
     view = (this.state.currentView === "ExternalUsers") ? "Admin" : "ExternalUsers";
-   console.log(view)
+    console.log(view)
     this.setState({ currentView: view});
   }
 
@@ -29,11 +31,16 @@ export default class App extends React.Component{
     } else {
       view = <Admin />
     }
-    return(
-      <div>
-       <button onClick={() => this.changeViewHandler()}>Toggle Views</button>
 
-      {view}
+    return(
+      <div className="container">
+      
+        <button className="btn" onClick={() => this.changeViewHandler()}>{this.state.currentView === "Admin" ? "Admin View / Toggle " : "User View / Toggle "} </button>
+  
+      
+        {view}
+      
+        
       </div>
     )
   }

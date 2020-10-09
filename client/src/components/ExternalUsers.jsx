@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import '../styles/externaluser.css';
 
 
 export default class ExternalUsers extends React.Component{
@@ -40,65 +41,135 @@ export default class ExternalUsers extends React.Component{
   render(){
 
     return(
-      <div>
+      <div className="container">
        <form>
-        <label htmlFor="firstName">
-          First Name: 
-          <input 
-          name="firstName" 
-          type="text" 
-          id="firstName" 
-          value={this.state.firstName}
-          onChange={this.handleChange}
-          />
-        </label>
 
-        <label htmlFor="lastName">
-          Last Name:
-          <input name="lastName" 
-          type="text" 
-          id="lastName" 
-          value={this.state.lastName}
-          onChange={this.handleChange}
-          />
-        </label>
+          <div className="row">
+            <div className="col-25">
+              <label htmlFor="firstName">
+                First Name:
+              </label>
+            </div>
 
-        <label htmlFor="phone">
-          Phone Number:
-          <input name="phoneNumber" 
-          type="tel" 
-          id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
-          value={this.state.phoneNumber}
-          onChange={this.handleChange}
-          />
-        </label>
+            <div className="col-75">
+              <input 
+                placeholder="First Name" 
+                name="firstName" 
+                type="text" 
+                id="firstName" 
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>  
 
-        <label htmlFor="fullAddress">
-          Full Address:
-          <input name="fullAddress" 
-          type="text" 
-          id="fullAddress" 
-          value={this.state.fullAddress}
-          onChange={this.handleChange}
-          />
-        </label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="lastName">
+                  Last Name:
+                </label>
+              </div>
 
-        <label htmlFor="ssn">
-          SSN: 
-          <input 
-          name="ssn" 
-          type="text" 
-          id="ssn" 
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
-          value={this.state.ssn}
-          onChange={this.handleChange}
-          autoComplete="off"
-          />
-        </label>
-        <button 
-        type="button" 
-        onClick={this.handleClick}>Submit</button>
-       </form>
+              <div className="col-75">
+                <input 
+                placeholder="Last Name" 
+                name="lastName" 
+                type="text" 
+                id="lastName" 
+                value={this.state.lastName}
+                onChange={this.handleChange}
+                />
+              </div>
+            </div>  
+           
+            {/* <div class="row">
+              <div className="col-25">
+                <label htmlFor="phone">
+                  Phone Number:
+                  </label>
+              </div>
+
+              <div className="col-75">
+                  <input
+                  placeholder="Phone Number"  
+                  // name="phoneNumber" 
+                  // type="number" 
+                  // id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+                  value={this.state.phoneNumber}
+                  onChange={this.handleChange}
+                  />
+              </div>
+            </div> */}
+
+            <div className="row">  
+              <div className="col-25">
+                <label htmlFor="fullAddress">
+                  Full Address:
+                </label>
+              </div>
+
+              <div className="col-75">
+                <input
+                placeholder="Full Address"   
+                name="fullAddress" 
+                type="text" 
+                id="fullAddress" 
+                value={this.state.fullAddress}
+                onChange={this.handleChange}
+                />
+              </div> 
+            </div>
+
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="phone">
+                  Phone Number:
+                  </label>
+              </div>
+
+              <div className="col-75">
+                  <input
+                  placeholder="Phone Number"  
+                  name="phoneNumber" 
+                  type="tel" 
+                  id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+                  value={this.state.phoneNumber}
+                  onChange={this.handleChange}
+                  />
+              </div>
+            </div>
+
+            <div className="row">   
+              <div className="col-25">
+                <label htmlFor="ssn">
+                    SSN:
+                </label>
+              </div> 
+
+              <div className="col-75">
+                <input
+                placeholder="SSN"  
+                name="ssn" 
+                type="text" 
+                id="ssn" 
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
+                value={this.state.ssn}
+                onChange={this.handleChange}
+                autoComplete="off"
+                />
+              </div> 
+            </div>
+
+          
+
+          <div className="row">
+            <button className="BtnExternalUser"
+            type="button" 
+            onClick={this.handleClick}>Submit</button>
+          </div>
+            
+          
+        </form>
        
       </div>
     )

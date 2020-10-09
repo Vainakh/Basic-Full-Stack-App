@@ -1,7 +1,7 @@
 let express = require("express");
 let bodyParser = require("body-parser");
 let path = require("path");
-let crypto = require('crypto');
+let CryptoJS = require("crypto-js");
 
 let app = express();
 
@@ -12,6 +12,13 @@ app.use(bodyParser.json());
 
 app.post('/data', (req, res) => {
   console.log('this is db'. db);
+  
+  console.log(req.body);
+    // Encrypt
+  req.body.ssn = CryptoJS.AES.encrypt(JSON.stringify(req.body.ssn), 'my-secret-key@123').toString();
+  console.log(req.body);
+  console.log(req.body.ssn);
+
   db.postData(req.body, (err) => {
     if (err) {
       console.log('error posting to mongo server')
@@ -23,6 +30,15 @@ app.post('/data', (req, res) => {
 
 app.get('/data', (req, res) => {
   db.getData((err, data) => {
+    data = data.map((item) => {
+       // Decrypt
+      let bytes = CryptoJS.AES.decrypt(item.ssn, 'my-secret-key@123');
+      item.ssn = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      console.log(item.ssn);
+      return item
+    })
+   
+    
     console.log(data);
     console.log(typeof data);
     res.send(data)
@@ -32,6 +48,7 @@ app.get('/data', (req, res) => {
 
 app.post('/auth', (req, res) => {
   console.log("auth end point fires")
+
   db.getAuth(req.body, (err, response) => {
     if (response === true) {
       console.log("success")
