@@ -108,7 +108,6 @@ const auth = (data, callback) => {
       callback(err)
     } else {
       console.log('successful find', userData);
-      console.log(data.password)
       bcrypt.compare(data.password, userData.password, function(err, res) {
         if (res == true){
           console.log("True")

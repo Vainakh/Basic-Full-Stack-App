@@ -53,7 +53,6 @@ app.post('/auth', (req, res) => {
     if (response === true) {
       console.log("success")
       res.status(200).send();
-      
     } else {
       res.status(401).send();
       console.log('error and auth')

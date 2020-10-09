@@ -30,12 +30,6 @@ class LoginView extends React.Component{
         console.log("Invalid username or password")
       }
     })
-    // if (valid){
-    //   console.log("true");
-     
-      
-    // }
-    // this.props.changeView();
   }
 
 
