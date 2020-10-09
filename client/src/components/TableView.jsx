@@ -89,7 +89,7 @@ import '../styles/tableview.css';
       <div>
         
         {tableData}
-        <button 
+        <button className="btnTableView"
         onClick={this.props.changeView}
         >LogOut</button>
       </div>
