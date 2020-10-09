@@ -28,9 +28,9 @@ import '../styles/tableview.css';
     const tableData = 
     <div>
       <div className="table">
-
+     
         <div className="label">
-          First Name
+        First Name
             {this.state.data.map((item) => {
               return (
                 <div className="item">{item.firstName}</div> 
@@ -38,9 +38,9 @@ import '../styles/tableview.css';
               )
             }
         </div>
-
+     
         <div className="label">
-          Last Name
+        Last Name
           {this.state.data.map((item) => {
             return (
               <div className="item">{item.lastName}</div> 
@@ -49,9 +49,9 @@ import '../styles/tableview.css';
           }
         </div>
     
-
+      
         <div className="label"> 
-            Phone Number
+        Phone Number   
           {this.state.data.map((item) => {
                 return (
               <div className="item">{item.phoneNumber}</div> 

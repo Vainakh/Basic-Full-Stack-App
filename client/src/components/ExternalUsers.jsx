@@ -59,6 +59,7 @@ export default class ExternalUsers extends React.Component{
                 id="firstName" 
                 value={this.state.firstName}
                 onChange={this.handleChange}
+                required
               />
             </div>
           </div>  
@@ -78,6 +79,7 @@ export default class ExternalUsers extends React.Component{
                 id="lastName" 
                 value={this.state.lastName}
                 onChange={this.handleChange}
+                required
                 />
               </div>
             </div>  
@@ -116,6 +118,7 @@ export default class ExternalUsers extends React.Component{
                 id="fullAddress" 
                 value={this.state.fullAddress}
                 onChange={this.handleChange}
+                required
                 />
               </div> 
             </div>
@@ -135,6 +138,7 @@ export default class ExternalUsers extends React.Component{
                   id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
                   value={this.state.phoneNumber}
                   onChange={this.handleChange}
+                  required
                   />
               </div>
             </div>
@@ -156,6 +160,7 @@ export default class ExternalUsers extends React.Component{
                 value={this.state.ssn}
                 onChange={this.handleChange}
                 autoComplete="off"
+                required
                 />
               </div> 
             </div>

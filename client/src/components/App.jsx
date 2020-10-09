@@ -35,7 +35,7 @@ export default class App extends React.Component{
     return(
       <div className="container">
       
-        <button className="btn" onClick={() => this.changeViewHandler()}>{this.state.currentView === "Admin" ? "Admin View / Toggle " : "User View / Toggle "} </button>
+        <button className="btn" onClick={() => this.changeViewHandler()}>{this.state.currentView === "Admin" ? "Go to External Users View" : "Go to Admin View"} </button>
   
       
         {view}

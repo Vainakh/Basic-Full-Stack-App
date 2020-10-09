@@ -1,14 +1,9 @@
 .table {
   display: flex;
   flex-direction: row;
-  border: 2px solid black;
+  justify-content: center; 
 }
-
-.label {
-  /* border: 1px solid red; */
-  border: 2px solid black;
-}
-
 .item {
-  /* border: 2px solid blue; */
+  border: 1px solid black;
+  padding: 5px;
 }
