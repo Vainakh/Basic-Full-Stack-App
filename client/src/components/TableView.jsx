@@ -2,33 +2,25 @@ import React from 'react';
 import axios from 'axios';
 import '../styles/tableview.css';
 
- class TableView extends React.Component{
-  
-  constructor(props){
-    console.log("custructor")
+ class TableView extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       data: [],
     }; 
   }
 
-  componentWillMount(){
-    console.log("ComponentWillMount");
+  componentWillMount() {
     axios.get("/data").then(
       response => {
-        console.log(response)
-        this.setState({data: response.data}, () => {
-          console.log("result")})
+        this.setState({data: response.data})
       })
   }
 
-  render(){
-    console.log(this.state.data);
-
+  render() {
     const tableData = 
     <div>
       <div className="table">
-     
         <div className="label">
         First Name
             {this.state.data.map((item) => {
@@ -38,7 +30,6 @@ import '../styles/tableview.css';
               )
             }
         </div>
-     
         <div className="label">
         Last Name
           {this.state.data.map((item) => {
@@ -48,8 +39,6 @@ import '../styles/tableview.css';
             )
           }
         </div>
-    
-      
         <div className="label"> 
         Phone Number   
           {this.state.data.map((item) => {
@@ -59,8 +48,6 @@ import '../styles/tableview.css';
             )
           }
         </div>
-   
-
         <div className="label">
             Full Address
           {this.state.data.map((item) => {
@@ -70,8 +57,6 @@ import '../styles/tableview.css';
             )
           }
         </div>
-    
-
         <div className="label">
             SSN
           {this.state.data.map((item) => {
@@ -84,10 +69,8 @@ import '../styles/tableview.css';
       </div>
     </div>
 
-    console.log("render")
     return (
       <div>
-        
         {tableData}
         <button className="btnTableView"
         onClick={this.props.changeView}

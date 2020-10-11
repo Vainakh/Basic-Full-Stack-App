@@ -3,11 +3,8 @@ import axios from 'axios';
 import LoginView from './LoginView.jsx';
 import TableView from './TableView.jsx';
 
-
-
-export default class Admin extends React.Component{
-  
-  constructor(props){
+export default class Admin extends React.Component { 
+  constructor(props) {
     super(props);
     this.state = {
       currentView: "LoginView"
@@ -15,9 +12,7 @@ export default class Admin extends React.Component{
     this.changeView = this.changeView.bind(this);
   }
 
-  
-
-  changeView(){
+  changeView() {
     let view;
 
     view = (this.state.currentView === "LoginView") ? "TableView" : "LoginView";
@@ -25,11 +20,10 @@ export default class Admin extends React.Component{
     this.setState({ currentView: view});
   }
 
-  render(){
-
+  render() {
     let view;
 
-    if (this.state.currentView === "LoginView"){
+    if (this.state.currentView === "LoginView") {
       view = <LoginView 
         changeView={this.changeView}
       />
@@ -39,20 +33,10 @@ export default class Admin extends React.Component{
       />
     }
 
-    return(
+    return (
       <div className="Admin">
         {view}
       </div>
     )
   }
 }
-
-//create terniary between login and logout
-
-
-
-
-
-
-
-

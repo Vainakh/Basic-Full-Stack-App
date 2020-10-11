@@ -2,46 +2,46 @@ import React from 'react';
 import axios from 'axios';
 import '../styles/loginview.css';
 
-
-class LoginView extends React.Component{
-  
-  constructor(props){
+class LoginView extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      invalidLogin: false
     }; 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
   }
 
-  onClickHandler(){
-    console.log(this.props.changeView)
+  onClickHandler() {
     axios.post('/auth', {
       username: this.state.username,
       password: this.state.password
     })
     .then((response) => {
-      if (response.status === 200){
-      console.log(this.props)
-      console.log("200")
-      this.props.changeView();
+      if (response.status === 200) {
+        this.props.changeView();
+        this.setState({invalidLogin: false})
       } else {
-        console.log("Invalid username or password")
+        this.setState({invalidLogin: true})
       }
     })
   }
 
-
-  onChangeHandler(event){
-    // console.log(event.target.value)
+  onChangeHandler(event) {
     const stateName = event.target.name;
     this.setState({ [stateName]: event.target.value })
-
   }
 
-  render(){
-    // console.log(this.props)
+  render() {
+    let loginStatus;
+    if (this.state.invalidLogin) {
+      loginStatus = <div className={"invalid"}>Invalid Username or Password!</div>
+    } else {
+      loginStatus = null;
+    }
+
     return (
       <div>
         <div className="container">
@@ -60,14 +60,10 @@ class LoginView extends React.Component{
               /> 
               </div>
           </div>
-       
-
-          
           <div className="row">
               <div className="col-25">
                 <label htmlFor="password"> Password: </label>
               </div>
-
               <div className="col-75">
                 <input 
                   placeholder="Password"
@@ -79,13 +75,12 @@ class LoginView extends React.Component{
                 />
             </div>
          </div>
-       
-      
           <div className="row">
           <button 
           className="BtnLoginView"
-          onClick={ this.onClickHandler}>LogIn</button>
+          onClick={this.onClickHandler}>LogIn</button>
           </div>
+          <div>{loginStatus}</div>
         </div>
       </div>
     )

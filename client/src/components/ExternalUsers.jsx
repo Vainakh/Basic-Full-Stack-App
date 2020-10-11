@@ -2,10 +2,8 @@ import React from 'react'
 import axios from 'axios';
 import '../styles/externaluser.css';
 
-
-export default class ExternalUsers extends React.Component{
-  
-  constructor(props){
+export default class ExternalUsers extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       firstName: "",
@@ -18,8 +16,7 @@ export default class ExternalUsers extends React.Component{
    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event){
-   
+  handleChange(event) {
     const stateName = event.target.name;
 
     this.setState({ [stateName]: event.target.value })
@@ -38,19 +35,16 @@ export default class ExternalUsers extends React.Component{
     })
   }
 
-  render(){
-
-    return(
+  render() {
+    return (
       <div className="container">
        <form>
-
           <div className="row">
             <div className="col-25">
               <label htmlFor="firstName">
                 First Name:
               </label>
             </div>
-
             <div className="col-75">
               <input 
                 placeholder="First Name" 
@@ -63,14 +57,12 @@ export default class ExternalUsers extends React.Component{
               />
             </div>
           </div>  
-
             <div className="row">
               <div className="col-25">
                 <label htmlFor="lastName">
                   Last Name:
                 </label>
               </div>
-
               <div className="col-75">
                 <input 
                 placeholder="Last Name" 
@@ -83,33 +75,12 @@ export default class ExternalUsers extends React.Component{
                 />
               </div>
             </div>  
-           
-            {/* <div class="row">
-              <div className="col-25">
-                <label htmlFor="phone">
-                  Phone Number:
-                  </label>
-              </div>
-
-              <div className="col-75">
-                  <input
-                  placeholder="Phone Number"  
-                  // name="phoneNumber" 
-                  // type="number" 
-                  // id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
-                  value={this.state.phoneNumber}
-                  onChange={this.handleChange}
-                  />
-              </div>
-            </div> */}
-
             <div className="row">  
               <div className="col-25">
                 <label htmlFor="fullAddress">
                   Full Address:
                 </label>
               </div>
-
               <div className="col-75">
                 <input
                 placeholder="Full Address"   
@@ -122,14 +93,12 @@ export default class ExternalUsers extends React.Component{
                 />
               </div> 
             </div>
-
             <div className="row">
               <div className="col-25">
                 <label htmlFor="phone">
                   Phone Number:
                   </label>
               </div>
-
               <div className="col-75">
                   <input
                   placeholder="Phone Number"  
@@ -142,14 +111,12 @@ export default class ExternalUsers extends React.Component{
                   />
               </div>
             </div>
-
             <div className="row">   
               <div className="col-25">
                 <label htmlFor="ssn">
                     SSN:
                 </label>
               </div> 
-
               <div className="col-75">
                 <input
                 placeholder="SSN"  
@@ -164,18 +131,12 @@ export default class ExternalUsers extends React.Component{
                 />
               </div> 
             </div>
-
-          
-
           <div className="row">
             <button className="BtnExternalUser"
             type="button" 
             onClick={this.handleClick}>Submit</button>
-          </div>
-            
-          
+          </div>  
         </form>
-       
       </div>
     )
   }

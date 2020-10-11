@@ -1,11 +1,10 @@
 .container {
-  /* background-color:#99cc00; */
   padding:10px;
   text-align: center;
 }
 
 .btn {
-  background-color: sandybrown;
+  background-color: darkgray;
   color: white;
   width: 250px;
   height: 70px;

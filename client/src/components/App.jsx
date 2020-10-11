@@ -3,11 +3,8 @@ import ExternalUsers from './ExternalUsers.jsx';
 import Admin from './Admin.jsx';
 import '../styles/app.css';
 
-
-
-export default class App extends React.Component{
-  
-  constructor(props){
+export default class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       currentView: "ExternalUsers",
@@ -15,7 +12,7 @@ export default class App extends React.Component{
     this.changeViewHandler = this.changeViewHandler.bind(this);
   }
 
-  changeViewHandler(){
+  changeViewHandler() {
     let view;
 
     view = (this.state.currentView === "ExternalUsers") ? "Admin" : "ExternalUsers";
@@ -23,24 +20,19 @@ export default class App extends React.Component{
     this.setState({ currentView: view});
   }
 
-  render(){
+  render() {
     let view;
 
-    if (this.state.currentView === "ExternalUsers"){
+    if (this.state.currentView === "ExternalUsers") {
       view = <ExternalUsers />
     } else {
       view = <Admin />
     }
 
-    return(
+    return (
       <div className="container">
-      
         <button className="btn" onClick={() => this.changeViewHandler()}>{this.state.currentView === "Admin" ? "Go to External Users View" : "Go to Admin View"} </button>
-  
-      
         {view}
-      
-        
       </div>
     )
   }
