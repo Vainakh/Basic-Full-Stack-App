@@ -16,7 +16,6 @@ export default class App extends React.Component {
     let view;
 
     view = (this.state.currentView === "ExternalUsers") ? "Admin" : "ExternalUsers";
-    console.log(view)
     this.setState({ currentView: view});
   }
 

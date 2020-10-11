@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios';
 import LoginView from './LoginView.jsx';
 import TableView from './TableView.jsx';
 
@@ -16,7 +15,6 @@ export default class Admin extends React.Component {
     let view;
 
     view = (this.state.currentView === "LoginView") ? "TableView" : "LoginView";
-  console.log(view)
     this.setState({ currentView: view});
   }
 
