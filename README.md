@@ -19,12 +19,8 @@ npm run react-dev
 ```
 ### Features
 
-SSN is encrypted using AES algorithm before being stored in the database
+SSN is encrypted using AES algorithm before being stored in the database.
 Password is hashed and authenticated using bcrypt.
-
-```bash
-npm run react-dev
-```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
