@@ -1,4 +1,4 @@
-# linqPal Assignment
+# Full Stack MERN basic
 
 This app is a full stack application build with MERN technology. 
 
